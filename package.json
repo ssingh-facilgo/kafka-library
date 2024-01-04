@@ -1,0 +1,13 @@
+{
+  "name": "kafkaeventpublisherfortesting",
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "kafkajs": "^2.2.4",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5"
+  },
+  "version": "1.0.0"
+
+}
