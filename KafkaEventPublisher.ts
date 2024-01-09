@@ -1,5 +1,5 @@
 import { Kafka } from 'kafkajs';
-import { LoggerFactory } from './LoggerFactory';
+import { LoggerFactory } from '../src/middleware/logger/LoggerFactory';
 
 export class KafkaEventPublisher {
     async publish(payload: any) {
