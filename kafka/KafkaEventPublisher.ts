@@ -1,12 +1,10 @@
 import { Kafka } from 'kafkajs';
-import { LoggerFactory } from '../src/middleware/logger/LoggerFactory';
-
 export class KafkaEventPublisher {
-    async publish(payload: any) {
+    public static publish(payload: any) {
 
         const kafka = new Kafka({
             brokers: [`${process.env.KAFKA_HOST || 'localhost:9092'}`],
-            clientId: 'producer',
+            clientId: process.env.NODE_ENV + 'producer',
             ssl: {
                 rejectUnauthorized: false,
                 ca: [process.env.CA_CERTIFICATE || ' '],
@@ -25,7 +23,7 @@ export class KafkaEventPublisher {
 
         run()
             .catch(err => {
-                LoggerFactory.getLogger().error("Error occurred while Kafka producer error: " + JSON.stringify(err));
+                throw err;
             });
     }
 }
