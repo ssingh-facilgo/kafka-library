@@ -5,7 +5,7 @@ export class KafkaEventManager {
         KafkaEventPublisher.publish(payload);
     }
 
-    Subscriber(topic: string, options: { groupId: string }, onMessageCallBack: Function) {
+    subscribe(topic: string, options: { groupId: string }, onMessageCallBack: Function) {
         KafkaEventSubscriber.subscriber(topic,options,onMessageCallBack);
     }
 }
