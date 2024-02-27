@@ -1,3 +1,3 @@
 export const eventBusType ={
-    kafka: "kafka"
+    KAFKA: 'Kafka'
 }
