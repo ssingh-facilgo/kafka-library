@@ -1,2 +1,2 @@
-export * from "./EventManagerBusFactory";
+export * from "./EventBusManagerFactory";
 export * from "./IEventBusManager";
