@@ -1,4 +1,4 @@
 export type IEventBusManager = {
-    publish(payload: any): any,
-    subscribe(topic: string, options: any): any
+    publish(payload: any): Promise<any>,
+    subscribe(topic: string, parameters?: any): Promise<any>
 };

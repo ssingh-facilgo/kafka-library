@@ -19,21 +19,21 @@ export class KafkaEventManager implements IEventBusManager {
         });
     }
 
-    async publish(payload: any): Promise<void> {
+    async publish(payload: any): Promise<any> {
         return new Promise((resolve, reject) => {
             try {
                 KafkaEventPublisher.publish(this.kafka, payload);
-                resolve();
+                resolve(true);
             } catch (err) {
                 reject(err);
             }
         });
     }
 
-    async subscribe(topic: any, optional: any) {
+    async subscribe(topic: any, parameters?: any): Promise<any> {
         return new Promise((resolve, reject) => {
               try {
-                KafkaEventSubscriber.subscriber(this.kafka, topic, { groupId: optional.groupId }).then((message)=>{
+                KafkaEventSubscriber.subscriber(this.kafka, topic, { groupId: parameters.groupId }).then((message)=>{
                     resolve(message);
                  });
               } catch (err) {
